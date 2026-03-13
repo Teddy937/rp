@@ -716,14 +716,16 @@ After running `php artisan db:seed`:
 | Branch B | BRB | Store B1 (STB1), Store B2 (STB2) |
 
 ### Users
-| Email | Role | Assignment |
-|---|---|---|
-| admin@kkwholesalers.co.ke | Administrator | — |
-| alice@kkwholesalers.co.ke | Branch Manager | Branch A |
-| brian@kkwholesalers.co.ke | Branch Manager | Branch B |
-| carol@kkwholesalers.co.ke | Store Manager | Store A1 |
-| david@kkwholesalers.co.ke | Store Manager | Store B1 |
-| eve@kkwholesalers.co.ke | Store Manager | Store B2 |
+| Name | Email | Role | Assignment |
+|---|---|---|---|
+| System Administrator | admin@kkwholesalers.co.ke | Administrator | — |
+| Thadeus Odenyo | odenyothadeus@gmail.com | Administrator | — |
+| Jim Muguna | jim.muguna@valuechainfactory.com | Administrator | — |
+| Alice Wanjiku | alice@kkwholesalers.co.ke | Branch Manager | Branch A |
+| Brian Otieno | brian@kkwholesalers.co.ke | Branch Manager | Branch B |
+| Carol Muthoni | carol@kkwholesalers.co.ke | Store Manager | Store A1 |
+| David Kamau | david@kkwholesalers.co.ke | Store Manager | Store B1 |
+| Eve Nyambura | eve@kkwholesalers.co.ke | Store Manager | Store B2 |
 
 All passwords: `password`
 

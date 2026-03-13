@@ -69,26 +69,10 @@ const http = () => {
 
 export const resolveUrl = (origin) => {
   switch (origin) {
-    case "https://test.favitech.co.ke":
-      return "https://backend.test.favitech.co.ke/api/v1/";
-      break;
-    case "https://portal.favitech.co.ke":
-      return "https://backend.favitech.co.ke/api/v1/";
-      break;
-    case "https://loansystem.demulla.co.ke":
-      // return "https://www.backend.portal.demulla.co.ke/api/v1/";
-      return "https://backend.portal.demulla.co.ke/api/v1/";
-      break;
-    case "http://localhost:5173":
+    case "http://localhost:5173": // local
       return "http://localhost:8000/api/v1/";
-    case "https://sso.demulla.co.ke":
-      return "https://backend.portal.demulla.co.ke/api/v1/";
-      break;
-    case "http://sso.demulla.co.ke":
-      return "https://backend.portal.demulla.co.ke/api/v1/";
-      break;
     default:
-      return "https://backend.favitech.co.ke/api/v1/";
+      return "https://backend.retail.nambaleconstituency.com/api/v1/";
       break;
   }
 };

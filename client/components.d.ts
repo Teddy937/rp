@@ -23,8 +23,6 @@ declare module 'vue' {
     BFormGroup: typeof import('bootstrap-vue-next')['BFormGroup']
     BFormInput: typeof import('bootstrap-vue-next')['BFormInput']
     BRow: typeof import('bootstrap-vue-next')['BRow']
-    BTab: typeof import('bootstrap-vue-next')['BTab']
-    BTabs: typeof import('bootstrap-vue-next')['BTabs']
     ChartJs: typeof import('./src/components/ChartJs.vue')['default']
     CustomerDocumentsComponent: typeof import('./src/components/CustomerDocumentsComponent.vue')['default']
     DropDown: typeof import('./src/components/DropDown.vue')['default']

@@ -126,6 +126,7 @@ const branchRoutes = [
     meta: {
       title: setTitle("View branches"),
       authRequired: true,
+      permission: "Can view branches",
     },
     component: () => import("@/views/branches/BranchView.vue"),
   },
@@ -144,6 +145,7 @@ const branchRoutes = [
     meta: {
       title: setTitle("View store list"),
       authRequired: true,
+      permission: "Can view stores", // just for demo to show how
     },
     component: () => import("@/views/branches/StoreView.vue"),
   },

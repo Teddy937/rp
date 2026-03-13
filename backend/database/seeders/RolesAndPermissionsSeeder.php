@@ -18,7 +18,10 @@ class RolesAndPermissionsSeeder extends Seeder
         // ── Permissions ──────────────────────────────────────────────────
         $permissions = [
             // Branch & Store
-            'Can manage branches',
+            'Can view branches',
+            'Can create branches',
+            'Can update branches',
+            'Can delete branches',
             'Can manage stores',
             'Can view branches',
             'Can view stores',

@@ -49,20 +49,6 @@ export const formatMoney = (amount: any) => {
   });
 };
 
-export const getAssetStatus = (status: any) => {
-  if (typeof status === "string" && status.includes("_")) {
-    const parts = status.split("_");
-    if (parts.length === 2) {
-      return parts.join(" ");
-    }
-  }
-  return status;
-};
-
-export const comingSoon = () => {
-  alert("Coming soon");
-};
-
 export const resetForm = (obj: any) => {
   for (const key in obj) {
     const value = obj[key];
@@ -139,66 +125,6 @@ export const capitalizeFirstLetter = (word: string): string => {
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 };
 
-export const encryptStr = async (str: string) => {
-  const secret = "7e64020c-fb0a-4a41-aff7-23d2799f99c9";
-  return CryptoJS.AES.encrypt(str, secret).toString();
-};
-
-export const decryptStr = (str: string) => {
-  const secret = "7e64020c-fb0a-4a41-aff7-23d2799f99c9";
-  const bytes = CryptoJS.AES.decrypt(str, secret);
-  return bytes.toString(CryptoJS.enc.Utf8);
-};
-
-export const encryptData = async (data: any) => {
-  const key = CryptoJS.enc.Utf8.parse(
-    "d4b6f2e8f1c7a304b7a6d0cbe9fabcfe32c1d4e5a1b7c8fdd2e3a9b1c7e6f203",
-  ); // 32-byte key for AES-256
-  const iv = CryptoJS.enc.Utf8.parse("1234567890123456"); // 16-byte IV
-  const cipher = "AES-256-CBC";
-
-  return CryptoJS.AES.encrypt(JSON.stringify(data), key, {
-    iv: iv,
-    mode: CryptoJS.mode.CBC,
-    padding: CryptoJS.pad.Pkcs7,
-  }).toString();
-};
-
-export const resolveLevels = (level: string) => {
-  switch (level) {
-    case "first":
-      return "First Approval";
-      break;
-    case "second":
-      return "Second Approval";
-      break;
-
-    case "final":
-      return "Final Approval";
-      break;
-    default:
-      break;
-  }
-};
-
-export const getRowClass = (date: any) => {
-  if (!date) return "";
-
-  const today = new Date();
-  const interactionDate = new Date(date);
-
-  today.setHours(0, 0, 0, 0);
-  interactionDate.setHours(0, 0, 0, 0);
-
-  if (interactionDate < today) {
-    return "bg-danger text-white";
-  } else if (interactionDate.getTime() === today.getTime()) {
-    return "bg-warning";
-  } else {
-    return "";
-  }
-};
-
 export const formatLabel = (str: string) => {
   return _.startCase(_.toLower(str));
 };
@@ -219,13 +145,4 @@ export const getDeviceInfo = () => {
     hardware_concurrency: nav.hardwareConcurrency || null,
     device_memory: nav.deviceMemory || null,
   };
-};
-
-export const getTotalValues = (
-  entries: { actual_value: number | string }[],
-) => {
-  return entries.reduce((sum, entry) => {
-    const value = Number(entry.actual_value) || 0;
-    return sum + value;
-  }, 0);
 };

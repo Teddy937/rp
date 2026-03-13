@@ -3,6 +3,7 @@
 use App\Http\Controllers\V1\AuditLogController;
 use App\Http\Controllers\V1\Auth\AuthController;
 use App\Http\Controllers\V1\BranchController;
+use App\Http\Controllers\V1\DashboardController;
 use App\Http\Controllers\V1\SkuController;
 use App\Http\Controllers\V1\StockLedgerController;
 use App\Http\Controllers\V1\StockMovementController;
@@ -25,6 +26,7 @@ Route::prefix('v1')->group(function () {
 
     // ── Authenticated (Sanctum token required) ───────────────────────────
     Route::middleware('auth:sanctum')->group(function () {
+        Route::get('dashboard', [DashboardController::class, 'index']);
 
         // Auth
         Route::prefix('auth')->group(function () {

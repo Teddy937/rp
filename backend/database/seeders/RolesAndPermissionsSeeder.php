@@ -81,7 +81,6 @@ class RolesAndPermissionsSeeder extends Seeder
         // Store Manager — store-scoped operations only
         $storeManager = Role::firstOrCreate(['name' => 'Store Manager', 'guard_name' => 'sanctum']);
         $storeManager->syncPermissions([
-            'Can view branches',
             'Can view stores',
             'Can view skus',
             'Can view stoke ledger',

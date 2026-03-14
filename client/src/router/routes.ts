@@ -257,6 +257,7 @@ const stockMovementRoutes = [
     meta: {
       title: setTitle("Stock movement approvals"),
       authRequired: true,
+      permission: "Can approve transfer",
     },
     component: () => import("@/views/stock-movement/PendingApprovals.vue"),
   },
@@ -296,6 +297,7 @@ const usersRoutes = [
     meta: {
       title: setTitle("Users List"),
       authRequired: true,
+      permission: "Can view users",
     },
     component: () => import("@/views/users/UserList.vue"),
   },
@@ -305,6 +307,7 @@ const usersRoutes = [
     meta: {
       title: setTitle("User creation"),
       authRequired: true,
+      permission: "Can manage users",
     },
     component: () => import("@/views/users/UserCreation.vue"),
   },
@@ -314,6 +317,7 @@ const usersRoutes = [
     meta: {
       title: setTitle("User edit"),
       authRequired: true,
+      permission: "Can manage users",
     },
     component: () => import("@/views/users/UserCreation.vue"),
   },

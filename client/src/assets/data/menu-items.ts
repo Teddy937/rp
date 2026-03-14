@@ -96,6 +96,7 @@ export const MENU_ITEMS: MenuItemType[] = [
         label: "Pending Approvals",
         route: { name: "stock.movement.pending.approvals" },
         parentKey: "stock-movements",
+        permission: "Can approve transfer",
       },
       {
         key: "movement-record-sale",
@@ -135,12 +136,14 @@ export const MENU_ITEMS: MenuItemType[] = [
         label: "All Users",
         route: { name: "user.list" },
         parentKey: "user-management",
+        permission: "Can view users",
       },
       {
         key: "user-create",
         label: "Add New User",
         route: { name: "users.create" },
         parentKey: "user-management",
+        permission: "Can manage users",
       },
     ],
   },

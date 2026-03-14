@@ -57,7 +57,7 @@
                                         <th>Status</th>
                                         <th>Online</th>
                                         <th>Last Login</th>
-                                        <th class="text-end">Actions</th>
+                                        <th class="text-end" v-if="hasPermission('Can manage users')">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -74,7 +74,7 @@
                                         <td>{{ user.phone ?? '—' }}</td>
                                         <td>
                                             <span v-for="r in user.roles" :key="r" :class="roleBadge(r)">{{ r.name
-                                            }}</span>
+                                                }}</span>
                                         </td>
                                         <td>
                                             <div v-if="user.branch">
@@ -97,7 +97,7 @@
                                             </span>
                                         </td>
                                         <td>{{ formatDate(user.last_login_at) }}</td>
-                                        <td class="text-end">
+                                        <td class="text-end" v-if="hasPermission('Can manage users')">
                                             <button class="btn btn-outline-warning btn-sm me-1"
                                                 @click="router.push({ name: 'users.edit', params: { id: user.id } })">
                                                 <i class="fas fa-edit"></i>
@@ -235,6 +235,8 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import StatesComponent from "@/states/StatesComponent.vue";
 import { useApiState } from "@/stores/apiState";
 import usersApi from "@/api/users/usersApi";
+import { hasPermission } from "@/helpers/permissions";
+
 
 const router = useRouter();
 const apiState = useApiState();

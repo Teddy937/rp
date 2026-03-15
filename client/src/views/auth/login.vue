@@ -33,11 +33,6 @@
                   <b-form-checkbox switch>Remember me</b-form-checkbox>
                 </div>
               </b-col>
-              <b-col sm="6" class="text-end">
-                <router-link to="/auth/reset-pass" class="text-muted font-13"><i class="dripicons-lock"></i>
-                  Forgot/Reset
-                  password</router-link>
-              </b-col>
             </div>
 
             <b-form-group class="mb-0 row">

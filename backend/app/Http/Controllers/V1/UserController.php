@@ -63,13 +63,16 @@ class UserController extends Controller
                 'address'        => ['nullable', 'string'],
             ]);
 
+            $role = $data['role'];
+            unset($data['role'], $data['password_confirmation']);
+
             $user = User::create([
                  ...$data,
                 'password'            => Hash::make($data['password']),
                 'password_changed_at' => now(),
             ]);
 
-            $user->assignRole($data['role']);
+            $user->assignRole($role);
 
             return $this->created(
                 new UserResource($user->load(['roles', 'branch', 'store'])),
@@ -111,7 +114,7 @@ class UserController extends Controller
                 'address'        => ['nullable', 'string'],
             ]);
 
-            $user->update($data);
+            $user->update(collect($data)->except('role')->toArray());
 
             if (! empty($data['role'])) {
                 $user->syncRoles([$data['role']]);

@@ -54,7 +54,7 @@ Route::prefix('v1')->group(function () {
                 'code'      => 200,
                 'message'   => 'Session active.',
                 'timestamp' => now(),
-                'data'      => $cached,
+                ...$cached,
                 'errors'    => null,
             ]);
         });

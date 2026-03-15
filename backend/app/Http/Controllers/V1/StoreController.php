@@ -4,6 +4,7 @@ namespace App\Http\Controllers\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\StoreStoreRequest;
 use App\Http\Resources\V1\StoreResource;
+use App\Models\User;
 use App\Repositories\StoreRepository;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
@@ -23,12 +24,16 @@ class StoreController extends Controller
     public function index(Request $request)
     {
         try {
-            $user    = Auth::user();
+            $user    = User::where('id', Auth::id())->first();
             $filters = $request->only(['search', 'is_active', 'branch_id']);
 
             // Scope branch managers to their own branch
             if (user_can('Can view branches')) {
                 $filters['branch_id'] = $user->branch_id;
+            }
+
+            if ($user->hasRole('Store Manager')) {
+                $filters['id'] = $user->store_id;
             }
 
             $stores = $this->storeRepo->paginateFiltered($filters, 15);

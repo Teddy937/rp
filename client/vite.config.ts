@@ -30,6 +30,6 @@ export default defineConfig({
     include: ["@fawmi/vue-google-maps", "fast-deep-equal"],
   },
   build: {
-    sourcemap: true,
+    sourcemap: false,
   },
 });

@@ -16,9 +16,8 @@ class BranchController extends Controller
         private readonly BranchRepository $branchRepo
     ) {
         $this->middleware('permission:Can create branches')->only('store');
-        $this->middleware('permission:Can view branches')->only('index');
-        $this->middleware('permission:Can update branches')->only('index');
-        $this->middleware('permission:Can delete branches')->only('index');
+        $this->middleware('permission:Can update branches')->only('update');
+        $this->middleware('permission:Can delete branches')->only('delete');
     }
 
     /**

@@ -28,13 +28,6 @@ class StoreController extends Controller
             $filters = $request->only(['search', 'is_active', 'branch_id']);
 
             // Scope branch managers to their own branch
-            if (user_can('Can view branches')) {
-                $filters['branch_id'] = $user->branch_id;
-            }
-
-            if ($user->hasRole('Store Manager')) {
-                $filters['id'] = $user->store_id;
-            }
 
             $stores = $this->storeRepo->paginateFiltered($filters, 15);
 

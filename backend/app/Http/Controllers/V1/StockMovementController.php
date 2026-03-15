@@ -31,16 +31,7 @@ class StockMovementController extends Controller
             $filters = $request->only([
                 'type', 'status', 'sku_id', 'date_from', 'date_to', 'reference_no',
             ]);
-
-            // Scope to store/branch depending on role
-            if (user_can('Can view stores')) {
-                $filters['store_id'] = $user->store_id;
-            } elseif (user_can('Can view branches')) {
-                $filters['branch_id'] = $user->branch_id;
-            }
-
             $movements = $this->movementRepo->paginateFiltered($filters, 15);
-
             return $this->paginated($movements);
         } catch (\Throwable $th) {
             return $this->error($th->getMessage());

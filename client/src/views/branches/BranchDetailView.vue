@@ -223,6 +223,8 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import StatesComponent from "@/states/StatesComponent.vue";
 import { useApiState } from "@/stores/apiState";
 import branchesApi from "@/api/branches/branchesApi";
+import { hasPermission } from "@/helpers/permissions";
+
 
 const route = useRoute();
 const router = useRouter();

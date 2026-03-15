@@ -10,7 +10,8 @@
                                 <b-card-title class="mb-0">Stores</b-card-title>
                             </b-col>
                             <b-col cols="auto">
-                                <button class="btn btn-primary btn-sm" @click="openCreate()">
+                                <button v-if="hasPermission('Can manage stores')" class="btn btn-primary btn-sm"
+                                    @click="openCreate()">
                                     <i class="fas fa-plus me-1"></i> Add Store
                                 </button>
                             </b-col>
@@ -208,6 +209,8 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import StatesComponent from "@/states/StatesComponent.vue";
 import { useApiState } from "@/stores/apiState";
 import branchesApi from "@/api/branches/branchesApi";
+import { hasPermission } from "@/helpers/permissions";
+
 
 const router = useRouter();
 const apiState = useApiState();

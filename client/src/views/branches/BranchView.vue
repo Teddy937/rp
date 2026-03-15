@@ -10,7 +10,8 @@
                                 <b-card-title class="mb-0">Branches</b-card-title>
                             </b-col>
                             <b-col cols="auto">
-                                <button class="btn btn-primary btn-sm" @click="openCreate()">
+                                <button v-if="hasPermission('Can create branches')" class="btn btn-primary btn-sm"
+                                    @click="openCreate()">
                                     <i class="fas fa-plus me-1"></i> Add Branch
                                 </button>
                             </b-col>
@@ -74,12 +75,12 @@
                                                 @click="viewDetail(branch.id)">
                                                 <i class="fas fa-eye"></i>
                                             </button>
-                                            <button class="btn btn-outline-warning btn-sm me-1"
-                                                @click="openEdit(branch)">
+                                            <button v-if="hasPermission('Can update branches')"
+                                                class="btn btn-outline-warning btn-sm me-1" @click="openEdit(branch)">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button class="btn btn-outline-danger btn-sm"
-                                                @click="confirmDelete(branch)">
+                                            <button v-if="hasPermission('Can delete branches')"
+                                                class="btn btn-outline-danger btn-sm" @click="confirmDelete(branch)">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </td>
@@ -197,6 +198,8 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import StatesComponent from "@/states/StatesComponent.vue";
 import { useApiState } from "@/stores/apiState";
 import branchesApi from "@/api/branches/branchesApi";
+import { hasPermission } from "@/helpers/permissions";
+
 
 const router = useRouter();
 const apiState = useApiState();

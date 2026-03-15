@@ -26,7 +26,8 @@
                                         @click="router.push({ name: 'branches.details', params: { id: store.branch_id } })">
                                         <i class="fas fa-building me-1"></i> View Branch
                                     </button>
-                                    <button class="btn btn-outline-warning btn-sm" @click="openEdit()">
+                                    <button v-if="hasPermission('Can manage stores')"
+                                        class="btn btn-outline-warning btn-sm" @click="openEdit()">
                                         <i class="fas fa-edit me-1"></i> Edit Store
                                     </button>
                                 </b-col>
@@ -143,6 +144,7 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import StatesComponent from "@/states/StatesComponent.vue";
 import { useApiState } from "@/stores/apiState";
 import branchesApi from "@/api/branches/branchesApi";
+import { hasPermission } from "@/helpers/permissions";
 
 const route = useRoute();
 const router = useRouter();

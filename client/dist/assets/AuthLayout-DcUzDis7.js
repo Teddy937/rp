@@ -1,2 +1,0 @@
-import{_ as a,B as _,o as l,a as t,w as e,L as r,b as d,I as f,J as u}from"./index-De2Oj_fL.js";const i={},m={class:"container-xxl"};function p(n,x){const o=f,s=d,c=r;return l(),_("div",m,[t(o,{class:"vh-100 d-flex justify-content-center"},{default:e(()=>[t(c,{cols:"12",class:"align-self-center"},{default:e(()=>[t(s,null,{default:e(()=>[t(o,null,{default:e(()=>[u(n.$slots,"default")]),_:3})]),_:3})]),_:3})]),_:3})])}const h=a(i,[["render",p]]);export{h as A};
-//# sourceMappingURL=AuthLayout-DcUzDis7.js.map

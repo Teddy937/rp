@@ -81,11 +81,12 @@
                                                 @click="router.push({ name: 'store.details', params: { id: store.id } })">
                                                 <i class="fas fa-eye"></i>
                                             </button>
-                                            <button class="btn btn-outline-warning btn-sm me-1"
-                                                @click="openEdit(store)">
+                                            <button v-if="hasPermission('Can manage stores')"
+                                                class="btn btn-outline-warning btn-sm me-1" @click="openEdit(store)">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button class="btn btn-outline-danger btn-sm" @click="confirmDelete(store)">
+                                            <button v-if="hasPermission('Can manage stores')"
+                                                class="btn btn-outline-danger btn-sm" @click="confirmDelete(store)">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </td>

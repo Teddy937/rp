@@ -11,8 +11,8 @@ return [
         'http://localhost:3000',
         'http://127.0.0.1:5173',
         'http://127.0.0.1:3000',
-        'https://backend.retail.nambaleconstituency.com',
-        'https://www.backend.retail.nambaleconstituency.com'
+        'https://retail.nambaleconstituency.com', // frontend prod
+        'https://www.retail.nambaleconstituency.com',
     ],
 
     'allowed_origins_patterns' => [],

@@ -49,7 +49,7 @@ export default {
 
   async approveTransfer(id) {
     try {
-      const response = await http().post(`movements/${id}/approve`);
+      const response = await http().post(`movements/transfer/${id}/approve`);
       return response.data;
     } catch (error) {
       throw new CustomAxiosError(error.response?.data || error.message);
@@ -58,7 +58,9 @@ export default {
 
   async rejectTransfer(id, reason) {
     try {
-      const response = await http().post(`movements/${id}/reject`, { reason });
+      const response = await http().post(`movements/transfer/${id}/reject`, {
+        reason,
+      });
       return response.data;
     } catch (error) {
       throw new CustomAxiosError(error.response?.data || error.message);
